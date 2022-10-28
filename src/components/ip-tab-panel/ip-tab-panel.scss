@@ -1,0 +1,156 @@
+/** VARIABLES **/
+
+$primaryColor: var(--tab-primary-color, #b00057);
+$secondaryColor: var(--tab-secondary-color, #2e3243);
+$primaryFont: Avenir-Book;
+$secondaryFont: Avenir-Heavy;
+$icon-size: 2em;
+
+/** END VARIABLES **/
+
+/** Tab panel headers **/
+.ip-tab {
+  &,
+  > * {
+    // RESETS
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+
+  button {
+    // RESETS
+    all: unset;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  // STYLES
+  display: block;
+  color: $secondaryColor;
+  font-family: var(--tab-font, $primaryFont);
+}
+
+.ip-tab-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-block-end: 0.063em solid $primaryColor; // Border Bottom
+
+  .ip-tab-header-title {
+    font-size: 1.25rem;
+    font-family: var(--tab-font, $secondaryFont);
+    font-weight: bold;
+  }
+}
+
+.ip-tab .ip-tab-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625em;
+    padding: 1.25em;
+    margin-inline: 0.75em; // Margin Left and Right
+    background-color: transparent;
+    color: $secondaryColor;
+    border-start-start-radius: 0.625em; // BR Top Left
+    border-start-end-radius: 0.625em; // BR Top Right
+    font-size: 1rem;
+
+    .tab-panel-text {
+      font-weight: normal;
+    }
+
+    .tab-panel-icon {
+      display: block;
+      inline-size: $icon-size; // Width
+      block-size: $icon-size; // Height
+      aspect-ratio: 1/1;
+    }
+
+    &.tab-content-active {
+      background-color: $primaryColor;
+      color: #ffffff;
+    }
+
+    &:focus,
+    &:focus-visible {
+      outline: 2px solid $secondaryColor;
+      outline-offset: 5px;
+    }
+  }
+}
+
+/** END Tab panel headers **/
+
+/** Tab panel content - added for default content **/
+.ip-content {
+  margin-block: 3.125em;
+  display: flex;
+
+  img {
+    border-radius: 0.625em;
+    flex-basis: 50%;
+  }
+
+  .ip-content-desc {
+    margin-inline-start: 3.125em; // Margin Left
+    margin-inline-end: 1.563em; // Margin Rightsssss
+    flex-basis: 50%;
+  }
+
+  .ip-content-title {
+    margin-block-start: 2.188em;
+    font-family: var(--tab-font, $secondaryFont);
+    font-weight: bold;
+    font-size: 1.125rem;
+    color: $primaryColor;
+    text-transform: uppercase;
+  }
+
+  .ip-content-subtitle {
+    margin-block-start: 0.357em; // Margin Top
+    font-family: var(--tab-font, $secondaryFont);
+    font-weight: bold;
+    font-size: 2.625rem;
+    color: $primaryColor;
+  }
+
+  .ip-content-text {
+    margin-block-start: 1.25em; // Margin Top
+    font-family: var(--tab-font, $primaryFont);
+    font-size: 1.125rem;
+    color: $secondaryColor;
+  }
+
+  .ip-content-btn {
+    margin-block-start: 1.25em; // Margin Top
+    font-family: var(--tab-font, $secondaryFont);
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 0.625em; // Padding Top and Bottom
+    padding-inline: 1em; // Padding Left and Right
+    border: none;
+    border-radius: 0.25em;
+    background-color: $primaryColor;
+    color: #fff;
+
+    img {
+      margin-inline-start: 0.938em; // Margin Left
+      inline-size: 0.875em; // Width
+      block-size: 0.938em; // Height
+    }
+  }
+}
+/** Tab panel content **/
