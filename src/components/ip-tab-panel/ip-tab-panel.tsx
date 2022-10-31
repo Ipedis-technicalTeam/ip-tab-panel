@@ -197,7 +197,7 @@ export class IpTabPanel {
         )}
 
         <div id="tab-list-content">
-          <div id={'tab-content-' + this.currentTabIndex} role="tabpanel" tabindex="0" aria-labelledby={'tab-' + this.currentTabIndex}>
+          <div id={'tab-content-' + this.currentTabIndex} role="tabpanel" aria-labelledby={'tab-' + this.currentTabIndex}>
             {dataContent}
           </div>
         </div>
