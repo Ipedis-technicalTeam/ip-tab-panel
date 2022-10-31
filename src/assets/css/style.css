@@ -69,7 +69,7 @@ ip-tab-panel::part(tab-list) {
   margin-top: 20px;
   font-family: Avenir-Heavy;
   font-size: 16px;
-  display: flex;
+  display: inline-block;
   justify-content: center;
   align-items: center;
   padding: 10px 16px;
@@ -84,9 +84,46 @@ ip-tab-panel::part(tab-list) {
   margin-left: 15px;
   width: 14px;
   height: 15px;
+  vertical-align: middle;
 }
 
 .tab-panel {
   max-width: 1080px;
   margin: 100px auto;
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait), only screen and (max-width: 992px) and (orientation: landscape) {
+  ip-tab-panel::part(tab-container) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  ip-tab-panel::part(tab-btn) {
+    margin-inline: 0;
+    padding: 0.75em;
+  }
+
+  ip-tab-panel::part(tab-text) {
+    display: none;
+  }
+
+  .ip-content {
+    flex-direction: column;
+    padding-inline: 20px;
+  }
+
+  .ip-content img {
+    flex-basis: 100%;
+    max-inline-size: 100%;
+  }
+
+  .ip-content .ip-content-desc {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .ip-content .ip-content-subtitle {
+    font-size: 2rem;
+    margin-block-end: 0.75em;
+  }
 }

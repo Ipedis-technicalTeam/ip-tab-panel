@@ -43,6 +43,11 @@ $icon-size: 2em;
     font-family: var(--tab-font, $secondaryFont);
     font-weight: bold;
   }
+
+  @media only screen and (max-width: 767px) and (orientation: portrait), only screen and (max-width: 992px) and (orientation: landscape) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .ip-tab .ip-tab-buttons {
@@ -85,6 +90,15 @@ $icon-size: 2em;
     &:focus-visible {
       outline: 2px solid $secondaryColor;
       outline-offset: 5px;
+    }
+
+    @media only screen and (max-width: 767px) and (orientation: portrait), only screen and (max-width: 992px) and (orientation: landscape) {
+      margin-inline: 0;
+      padding: 0.75em;
+
+      .tab-panel-text {
+        display: none;
+      }
     }
   }
 }
@@ -136,7 +150,7 @@ $icon-size: 2em;
     font-family: var(--tab-font, $secondaryFont);
     font-weight: bold;
     font-size: 1rem;
-    display: flex;
+    display: inline-block;
     justify-content: center;
     align-items: center;
     padding-block: 0.625em; // Padding Top and Bottom
@@ -150,6 +164,26 @@ $icon-size: 2em;
       margin-inline-start: 0.938em; // Margin Left
       inline-size: 0.875em; // Width
       block-size: 0.938em; // Height
+      vertical-align: middle;
+    }
+  }
+
+  @media only screen and (max-width: 767px) and (orientation: portrait), only screen and (max-width: 992px) and (orientation: landscape) {
+    flex-direction: column;
+
+    img {
+      flex-basis: 100%;
+      max-inline-size: 100%;
+    }
+
+    &-desc {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .ip-content-subtitle {
+      font-size: 2rem;
+      margin-block-end: 0.75em;
     }
   }
 }

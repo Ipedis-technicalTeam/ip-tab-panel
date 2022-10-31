@@ -143,10 +143,10 @@ export class IpTabPanel {
               type="button"
               role="tab"
               part={this.currentTab === 'tab-content-' + (index + 1) ? 'tab-btn tab-btn-active' : 'tab-btn'}
-              aria-selected={this.currentTab === 'tab-content-' + (index + 1) ? 'true' : 'false' +
-                  ''}
+              aria-selected={this.currentTab === 'tab-content-' + (index + 1) ? 'true' : 'false' + ''}
               aria-controls={'tab-content-' + (index + 1)}
               tabindex={this.currentTab === 'tab-content-' + (index + 1) ? 0 : -1}
+              aria-label={tabHeader.title ? tabHeader.title : tabHeader.alt}
             >
               {tabHeader.imgPath ? (
                 <img
@@ -171,7 +171,17 @@ export class IpTabPanel {
             </button>
           ))
         ) : (
-          <button class="tab-content-active" part="tab-btn tab-btn-active" id="tab-1" type="button" role="tab" aria-selected aria-controls="tab-content-1" tabindex="0">
+          <button
+            class="tab-content-active"
+            part="tab-btn tab-btn-active"
+            id="tab-1"
+            type="button"
+            role="tab"
+            aria-selected
+            aria-controls="tab-content-1"
+            tabindex="0"
+            title="Tab-Header-1"
+          >
             <img part="tab-icon tab-icon-active" class="tab-panel-icon" src={getAssetPath(`./assets/acc-1-active.svg`)} alt="" />
             <span part="tab-text" class="tab-panel-text">
               Tab-Header-1
