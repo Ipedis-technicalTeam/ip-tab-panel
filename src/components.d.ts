@@ -10,6 +10,7 @@ export namespace Components {
     interface IpTabPanel {
         "tabPanelHeaders": TabPanelInterface[] | string;
         "tabPanelTitle": string;
+        "titleTag": string;
     }
 }
 declare global {
@@ -27,6 +28,7 @@ declare namespace LocalJSX {
     interface IpTabPanel {
         "tabPanelHeaders"?: TabPanelInterface[] | string;
         "tabPanelTitle"?: string;
+        "titleTag"?: string;
     }
     interface IntrinsicElements {
         "ip-tab-panel": IpTabPanel;

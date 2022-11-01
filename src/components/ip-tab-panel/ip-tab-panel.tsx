@@ -19,6 +19,7 @@ export class IpTabPanel {
   @Prop() tabPanelHeaders: TabPanelInterface[] | string;
 
   @Prop() tabPanelTitle: string;
+  @Prop() titleTag: string;
 
   @Watch('tabPanelHeaders')
   arrayDataWatcher(newValue: TabPanelInterface[] | string) {
@@ -132,7 +133,7 @@ export class IpTabPanel {
     }
 
     const divHeaders = (
-      <div role="tablist" part="tab-btn-list" aria-labelledby="tablist-1" class="ip-tab-buttons" id="tab-buttons">
+      <div role="tablist" part="tab-btn-list" aria-labelledby={this.tabPanelTitle ? 'tablist-1' : null} class="ip-tab-buttons" id="tab-buttons">
         {this._tabPanelHeaders ? (
           this._tabPanelHeaders.map((tabHeader, index) => (
             <button
@@ -195,9 +196,12 @@ export class IpTabPanel {
       <div class="ip-tab">
         {this.tabPanelTitle ? (
           <div part="tab-container" class="ip-tab-header">
-            <h3 part="tab-panel-title" id="tablist-1" class="ip-tab-header-title">
-              {this.tabPanelTitle}
-            </h3>
+            {this.titleTag ? (
+              <this.titleTag part="tab-panel-title" id="tablist-1" class="ip-tab-header-title">
+                {this.tabPanelTitle}
+              </this.titleTag>
+            ) : null}
+
             {divHeaders}
           </div>
         ) : (
